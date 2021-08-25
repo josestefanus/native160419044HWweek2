@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_main.*
+import java.util.*
 
 class MainFragment : Fragment() {
 
@@ -21,6 +22,12 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val random = Random()
+        val random1 = random.nextInt(5)+10
+        val random2 = random.nextInt(10)+20
+        textNumb1.text = random1.toString()
+        textNumb2.text = random2.toString()
+
         buttonSubmit.setOnClickListener {
             val num1 = Integer.parseInt(textNumb1.text.toString())
             val num2 = Integer.parseInt(textNumb1.text.toString())
@@ -28,7 +35,7 @@ class MainFragment : Fragment() {
             val playerAnswer = textAnswer.text.toString()
             var playerScore = 0
             if(result.toString() == playerAnswer) {
-                playerScore += 1
+                playerScore = 1
             } else {
                 playerScore = 0
             }
