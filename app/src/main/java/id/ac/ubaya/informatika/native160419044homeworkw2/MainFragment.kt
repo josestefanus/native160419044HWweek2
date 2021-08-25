@@ -22,8 +22,18 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         buttonSubmit.setOnClickListener {
-            val playerScore = textAnswer.text.toString()
-            val action = MainFragmentDirections.actionGameFragment(playerScore)
+            val num1 = Integer.parseInt(textNumb1.text.toString())
+            val num2 = Integer.parseInt(textNumb1.text.toString())
+            val result = num1 + num2
+            val playerAnswer = textAnswer.text.toString()
+            var playerScore = 0
+            if(result.toString() == playerAnswer) {
+                playerScore += 1
+            } else {
+                playerScore = 0
+            }
+
+            val action = MainFragmentDirections.actionGameFragment(playerScore.toString())
             Navigation.findNavController(it).navigate(action)
         }
     }
